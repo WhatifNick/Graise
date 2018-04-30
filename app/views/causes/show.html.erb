@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @cause.image %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @cause.name %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @cause.website %>
+</p>
+
+<p>
+  <strong>About:</strong>
+  <%= @cause.about %>
+</p>
+
+<%= link_to 'Edit', edit_cause_path(@cause) %> |
+<%= link_to 'Back', causes_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>City:</strong>
+  <%= @area.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @area.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @area.country %>
+</p>
+
+<p>
+  <strong>Post code:</strong>
+  <%= @area.post_code %>
+</p>
+
+<%= link_to 'Edit', edit_area_path(@area) %> |
+<%= link_to 'Back', areas_path %>
