@@ -32,7 +32,7 @@
 
 <p>
   <strong>Area:</strong>
-  <%= @user.area %>
+  <%= "#{@user.area.city},#{@user.area.state}" %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
