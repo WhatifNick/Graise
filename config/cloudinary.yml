@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: whatifnick
+  api_key: '895666214567885'
+  api_secret: KZ-VYCA8gHAzLgqWdv7F14td1S4
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: whatifnick
+  api_key: '895666214567885'
+  api_secret: KZ-VYCA8gHAzLgqWdv7F14td1S4
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: whatifnick
+  api_key: '895666214567885'
+  api_secret: KZ-VYCA8gHAzLgqWdv7F14td1S4
+  enhance_image_tag: true
+  static_image_support: false
