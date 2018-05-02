@@ -16,7 +16,7 @@
   <tbody>
     <% @causes.each do |cause| %>
       <tr>
-        <td><%= cause.image %></td>
+        <td><%= image_tag cause.image_url(:thumb) %></td>
         <td><%= cause.name %></td>
         <td><%= cause.website %></td>
         <td><%= cause.about %></td>

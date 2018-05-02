@@ -2,7 +2,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @venue.image %>
+  <%= image_tag @venue.image_url %>
 </p>
 
 <p>
@@ -42,8 +42,16 @@
 
 <p>
   <strong>Area:</strong>
-  <%= @venue.area %>
+  <%= "#{@venue.area.city}, #{@venue.area.state}" %>
 </p>
+
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuEtLjJSQSbK5lUfK91fiuOUht2NOeGck
+    &q=<%= @venue.area.city_state_address %>" allowfullscreen>
+</iframe>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |
 <%= link_to 'Back', venues_path %>

@@ -58,3 +58,6 @@ gem "carrierwave", "~> 1.2"
 
 # Added at 2018-05-01 15:44:56 +1000 by alexspong:
 gem "cloudinary", "~> 1.9"
+
+# Added at 2018-05-02 14:24:20 +1000 by alexspong:
+gem "geocoder", "~> 1.4"
