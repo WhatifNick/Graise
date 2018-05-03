@@ -10,7 +10,7 @@
       <th>Last name</th>
       <th>Email</th>
       <th>Phone number</th>
-      <th>Bio</th>
+
       <th>Area</th>
       <th colspan="3"></th>
     </tr>
@@ -24,8 +24,8 @@
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
-        <td><%= user.bio %></td>
-        <td><%= user.area %></td>
+
+        <td><%= "#{user.area.city},#{user.area.state}" if user.area.city!=nil && user.area.state!=nil %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

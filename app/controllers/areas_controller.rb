@@ -28,6 +28,8 @@ class AreasController < ApplicationController
 
     respond_to do |format|
       if @area.save
+        current_user.area = @area
+        current_user.save
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
       else
