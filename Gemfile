@@ -63,3 +63,6 @@ gem "cloudinary", "~> 1.9"
 gem "geocoder", "~> 1.4"
 # Added at 2018-04-30 16:31:17 +1000 by alexspong:
 gem "devise", "~> 4.4"
+
+# Added at 2018-05-03 16:14:58 +1000 by alexspong:
+gem "rolify", "~> 5.2"

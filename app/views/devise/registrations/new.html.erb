@@ -41,6 +41,11 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+<br>
+<p>Are you signing up as a venue?</p>
+    <input type="radio" name="venue" value="no" checked> No<br>
+    <input type="radio" name="venue" value="yes"> Yes
+<br><br>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
