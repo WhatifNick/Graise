@@ -2,7 +2,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @event.image %>
+  <%= image_tag @event.image_url %>
 </p>
 
 <p>
@@ -26,18 +26,18 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @event.user %>
+  <strong>Host:</strong>
+  <%= @event.user.first_name %>
 </p>
 
 <p>
   <strong>Venue:</strong>
-  <%= @event.venue %>
+  <%= @event.venue.name %>
 </p>
 
 <p>
   <strong>Cause:</strong>
-  <%= @event.cause %>
+  <%= @event.cause.name %>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
