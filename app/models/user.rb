@@ -6,7 +6,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :area
   has_and_belongs_to_many :causes
   mount_uploader :image, ProfilePictureUploader
   has_many :events

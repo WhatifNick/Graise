@@ -29,7 +29,7 @@
         <td><%= venue.style %></td>
         <td><%= venue.about %></td>
         <td><%= venue.street_address %></td>
-        <td><%= "#{venue.area.city}, #{venue.area.state}  #{venue.area.post_code}" %></td>
+        <td><%= "#{venue.city}, #{venue.state}  #{venue.post_code}" %></td>
         <td><%= link_to 'Show', venue %></td>
         <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
         <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -85,7 +85,7 @@
        var features = [
          <% @venues.each do |venue| %>
          {
-           position: new google.maps.LatLng(<%= venue.area.latitude %>, <%= venue.area.longitude %>),
+           position: new google.maps.LatLng(<%= venue.latitude %>, <%= venue.longitude %>),
            type: 'library'
          },
          <% end %>

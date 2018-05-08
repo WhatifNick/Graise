@@ -10,21 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503061510) do
+ActiveRecord::Schema.define(version: 20180508013913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "areas", force: :cascade do |t|
-    t.string "city"
-    t.string "state"
-    t.string "country"
-    t.string "post_code"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
-  end
 
   create_table "causes", force: :cascade do |t|
     t.string "image"
@@ -72,7 +61,6 @@ ActiveRecord::Schema.define(version: 20180503061510) do
     t.string "last_name"
     t.string "phone_number"
     t.text "bio"
-    t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false
@@ -85,7 +73,8 @@ ActiveRecord::Schema.define(version: 20180503061510) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.index ["area_id"], name: "index_users_on_area_id"
+    t.string "city"
+    t.string "state"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -107,15 +96,17 @@ ActiveRecord::Schema.define(version: 20180503061510) do
     t.string "style"
     t.text "about"
     t.string "street_address"
-    t.bigint "area_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["area_id"], name: "index_venues_on_area_id"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "post_code"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "events", "causes"
   add_foreign_key "events", "users"
   add_foreign_key "events", "venues"
-  add_foreign_key "users", "areas"
-  add_foreign_key "venues", "areas"
 end
