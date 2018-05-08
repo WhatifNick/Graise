@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :events
   resources :causes
   resources :venues
-  # resources :users
+  resources :users
   resources :areas
   root to: 'events#index'
 

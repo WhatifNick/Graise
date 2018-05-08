@@ -27,6 +27,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    not_authorized and return unless current_user == @user
   end
 
   # POST /users
@@ -78,5 +79,10 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:image, :first_name, :last_name, :email, :phone_number, :bio, :city, :state)
+    end
+
+    def not_authorized
+      flash[:notice] = "You are not not authorized"
+      redirect_to events_path
     end
 end

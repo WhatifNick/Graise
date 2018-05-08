@@ -18,15 +18,15 @@ class User < ApplicationRecord
   #     end
 
     def can_create_event?
-        self.has_role?(:admin) || self.has_role?(:host)
+        self.has_role?(:admin) || self.has_role?(:venue)
       end
 
       def can_update_event?(event)
-        self.has_role?(:admin) || (self.has_role?(:host) && post.user == self)
+        self.has_role?(:admin) || (self.has_role?(:host) && post.user == self) || (self.has_role?(:venue) && post.user == self)
       end
 
       def can_delete_event?(event)
-        self.has_role?(:admin) || (self.has_role?(:host) && post.user == self) || self.has_role?(:venue)
+        self.has_role?(:admin) || (self.has_role?(:venue) && post.user == self)
       end
 
   #

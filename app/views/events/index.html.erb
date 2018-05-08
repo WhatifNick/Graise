@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= link_to "Set your Location", "areas/new" if current_user && current_user.area.id==1 %>
 
 <h1>Events</h1>
 
@@ -41,5 +40,6 @@
 </table>
 
 <br>
-
+<% if user_signed_in? && current_user.has_role?(:venue) %>
 <%= link_to 'New Event', new_event_path %>
+<% end %>

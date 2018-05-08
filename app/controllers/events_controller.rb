@@ -16,10 +16,10 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
-    if current_user.has_role? :admin or current_user.has_role? :host
+    if user_signed_in? && (current_user.has_role? :admin or current_user.has_role? :venue)
       @event = Event.new
     else
-      flash[:notice] = "You must be logged in as a host"
+      flash[:notice] = "Venues must create events"
       redirect_to events_path
     end
 
