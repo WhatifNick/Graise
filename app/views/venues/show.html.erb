@@ -44,13 +44,16 @@
   <strong>Area:</strong>
   <%= "#{@venue.city}, #{@venue.state}" %>
 </p>
-
+<% if user_signed_in? && current_user.has_role?(:host) %>
+<%= button_to "Request Event", requests_create_path, method: :post, params: {venue_id: @venue.id} %>
+<% end %>
+<br>
 <iframe
   width="600"
   height="450"
   frameborder="0" style="border:0"
   src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuEtLjJSQSbK5lUfK91fiuOUht2NOeGck
-    &q=<%= @venue.area.city_state_address %>" allowfullscreen>
+    &q=<%= @venue.full_street_address %>" allowfullscreen>
 </iframe>
 
 <%= link_to 'Edit', edit_venue_path(@venue) %> |

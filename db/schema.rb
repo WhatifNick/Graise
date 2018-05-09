@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180508013913) do
+ActiveRecord::Schema.define(version: 20180508054341) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,16 @@ ActiveRecord::Schema.define(version: 20180508013913) do
     t.index ["cause_id"], name: "index_events_on_cause_id"
     t.index ["user_id"], name: "index_events_on_user_id"
     t.index ["venue_id"], name: "index_events_on_venue_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "venue_id"
+    t.boolean "open", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_requests_on_user_id"
+    t.index ["venue_id"], name: "index_requests_on_venue_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -109,4 +119,6 @@ ActiveRecord::Schema.define(version: 20180508013913) do
   add_foreign_key "events", "causes"
   add_foreign_key "events", "users"
   add_foreign_key "events", "venues"
+  add_foreign_key "requests", "users"
+  add_foreign_key "requests", "venues"
 end

@@ -1,6 +1,7 @@
 class Venue < ApplicationRecord
   mount_uploader :image, ProfilePictureUploader
   has_many :events
+  has_many :requests
   geocoded_by :full_street_address   # can also be an IP address
   after_validation :geocode          # auto-fetch coordinates
 

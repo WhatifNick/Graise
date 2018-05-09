@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_and_belongs_to_many :causes
   mount_uploader :image, ProfilePictureUploader
   has_many :events
-
+  has_many :requests
 
   # after_create :set_role
   #

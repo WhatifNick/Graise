@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Graze</title>
+    <title>Graise</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag'https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="shortcut icon" href="assets/Graise.png">
   </head>
 
   <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Graise</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav d-flex">
       <li class="nav-item active">
         <a class="nav-link" href="/events">Events <span class="sr-only">(current)</span></a>
       </li>
@@ -32,6 +33,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/users/venueowners">Venue Owners</a>
       </li>
+      <% if user_signed_in? && current_user.has_role?(:host) %>
+      <li class="nav-item">
+        <a class="nav-link" href="/requests/index">My Requests</a>
+      </li>
+      <% end %>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -57,6 +63,7 @@
 
 
 
+
       <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Dropdown link
@@ -70,7 +77,6 @@
     </ul>
   </div>
 </nav>
-
     <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>

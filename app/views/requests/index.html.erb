@@ -1,0 +1,10 @@
+
+
+<br><br>
+<% @requests.each do |request| %>
+  <td><%= request.id %></td>
+  <td><%= request.venue.name %></td>
+  <td><%= request.open %></td>
+  <td><%= request.created_at %></td>
+<br>
+<% end %>

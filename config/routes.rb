@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :users
   resources :areas
   root to: 'events#index'
+  post "requests/create"
+  get "requests/index"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
