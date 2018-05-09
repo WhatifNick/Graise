@@ -51,6 +51,27 @@
     <%= form.text_field :street_address, id: :venue_street_address %>
   </div>
 
+  <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :venue_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state, id: :venue_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :country %>
+    <%= form.text_field :country, id: :venue_country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :post_code %>
+    <%= form.text_field :post_code, id: :venue_post_code %>
+  </div>
+
+
 
   <div class="actions">
     <%= form.submit %>

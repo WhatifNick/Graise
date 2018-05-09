@@ -15,6 +15,7 @@
     <%= form.label :image %>
     <%= form.file_field :image, id: :event_image %>
   </div>
+
   <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :event_title %>
@@ -36,13 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :event_user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :venue_id %>
-    <%= form.text_field :venue_id, id: :event_venue_id %>
+    <%= form.label :host_email %>
+    <%= form.text_field :host_email, id: :event_host_email %>
   </div>
 
   <div class="field">

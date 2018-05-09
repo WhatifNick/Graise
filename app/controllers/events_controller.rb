@@ -28,16 +28,30 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
+    # not_authorized and return unless user_signed_in? and current_user.can_update_event?(@event)
   end
 
   # POST /events
   # POST /events.json
   def create
-    not_authorized and return unless current_user.can_create_event?
+    # render plain: params.inspect
+    # return
 
-    @event = Event.new(event_params)
-    @event.user = current_user
+    not_authorized and return unless user_signed_in? and current_user.can_create_event?
 
+    hosts = User.where(email: params['event']['host_email'])
+    ep = event_params
+    # if (!hosts.empty?)
+      ep[:user_id] = hosts.first.id
+
+    # else
+    #   flash[:notice] = "Host email not found"
+    #   redirect_to new_event_path
+    # end
+    @event = Event.new(ep)
+
+
+    @event.venue = Venue.where(user_id: current_user.id).first
     respond_to do |format|
       if @event.save
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -52,7 +66,7 @@ class EventsController < ApplicationController
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
   def update
-    not_authorized and return unless current_user.can_update_event?(@event)
+    not_authorized and return unless user_signed_in? and current_user.can_update_event?(@event)
     respond_to do |format|
       if @event.update(event_params)
         format.html { redirect_to @event, notice: 'Event was successfully updated.' }
@@ -67,7 +81,7 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    not_authorized and return unless current_user.can_delete_event?(@event)
+    not_authorized and return unless user_signed_in? and current_user.can_delete_event?(@event)
     @event.destroy
     respond_to do |format|
       format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
@@ -83,7 +97,7 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:image, :title, :date, :time, :about, :user_id, :venue_id, :cause_id)
+      params.require(:event).permit(:image, :title, :date, :time, :about, :venue_id, :cause_id)
     end
 
     def not_authorized

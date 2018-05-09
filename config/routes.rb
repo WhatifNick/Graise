@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'users/hosts'
   get 'users/venueowners'
+  get "venues/myvenue"
+
   devise_for :users, controllers: {
           registrations: 'users/registrations'
         }

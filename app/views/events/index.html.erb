@@ -10,7 +10,6 @@
       <th>Title</th>
       <th>Date</th>
       <th>Time</th>
-      <th>About</th>
       <th>Host</th>
       <th>Venue</th>
       <th>Cause</th>
@@ -25,13 +24,14 @@
         <td><%= event.title %></td>
         <td><%= event.date %></td>
         <td><%= event.time %></td>
-        <td><%= event.about %></td>
         <td><%= event.user.first_name %></td>
         <td><%= event.venue.name %></td>
         <td><%= event.cause.name %></td>
         <td><%= link_to 'Show', event %></td>
-        <% if event.user == current_user %>
+        <% if user_signed_in? && (event.user == current_user || event.venue.user_id == current_user.id) %>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
+        <% end %>
+        <% if user_signed_in? && event.venue.user_id == current_user.id %>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>

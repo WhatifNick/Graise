@@ -42,6 +42,9 @@
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <% if user_signed_in? && current_user.has_role?(:venue) %>
+      <%= link_to('My Venue', venues_myvenue_path, class:"nav-item nav-link")%>
+      <% end %>
 
       <% if user_signed_in? %>
       <%= link_to('Profile', user_path(current_user), class:"nav-item nav-link")%>
