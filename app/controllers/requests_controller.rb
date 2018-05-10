@@ -8,12 +8,11 @@ class RequestsController < ApplicationController
     @request = Request.new(venue_id: params[:venue_id])
     @request.user_id = current_user.id
     @request.save
-    @venue = Venue.find(venue_id: params[:venue_id])
-    email = @venue.user.email
-    user = current_user.id
+    @venue = Venue.find(params[:venue_id])
+    email = @venue.email
+    # user = current_user.id
+    RequestEventMailer.send_request(email).deliver
     flash[:notice] = "You have successfully created a request"
-    RequestEventMailer.send_request(email, user).deliver_now
-
     redirect_to Venue.find(params[:venue_id])
 
     return
