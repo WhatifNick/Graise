@@ -17,7 +17,7 @@ Future Updates
 This app was designed as part of the CoderAcademy assignment to build a two-sided marketplace.
 PROBLEM DEFINITION: Creating fundraising events for local charities, schools, or causes can be very time consuming and complex. To organise such an event usually replies on many differnt revenue streams. Finding a venue to host the event can be costly and difficult to schedule.
 
-SOLUTION: gRaise is design to take most of the headache of planning fundraising events and redesign how the money is raised. The app is designed so that a user who wants to raise money for a cause cans sign on to become a host and find venues(restaurant, bar, etc) in their area who are wanting to host events. The venues will see an influx of customers during the event and bring in people who may have never been to their establishment. In return, the venue will donate a portion of the proceeds to the host's cause.
+SOLUTION: GRaise is design to take most of the headache of planning fundraising events and redesign how the money is raised. The app is designed so that a user who wants to raise money for a cause cans sign on to become a host and find venues(restaurant, bar, etc) in their area who are wanting to host events. The venues will see an influx of customers during the event and bring in people who may have never been to their establishment. In return, the venue will donate a portion of the proceeds to the host's cause.
 
 -----
 ## 2. Installation
