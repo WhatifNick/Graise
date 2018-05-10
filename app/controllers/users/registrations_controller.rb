@@ -17,7 +17,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       current_user.add_role(:host)
     end
-
+  #
   end
 
   # GET /resource/edit
@@ -57,12 +57,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
+  # def after_sign_up_path_for(user)
+  #   if params[:venue] == "yes"
+  #     current_user.add_role(:venue)
+  #   else
+  #     current_user.add_role(:host)
+  #   end
   # end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+
 end

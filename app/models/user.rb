@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, :city, :state, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  belongs_to :cause
+  has_one :cause
   # has_and_belongs_to_many :causes
   # has_one :cause
   mount_uploader :image, ProfilePictureUploader
