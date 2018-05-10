@@ -31,6 +31,11 @@
     <%= f.label :state, "State" %><br />
     <%= f.text_field :state, autofocus: true, autocomplete: "state" %>
   </div>
+  <div class="field">
+    <%= f.label :cause_id, "Select Cause" %><br />
+  <select name="user[cause_id]">
+    <%= options_from_collection_for_select(Cause.all, :id, :name) %>
+  </select>
 
 
 
