@@ -17,17 +17,13 @@ class EventsController < ApplicationController
 
   # GET /events/new
   def new
+    not_paid and return unless flash[:has_paid]
     if user_signed_in? && (current_user.has_role? :admin or current_user.has_role? :venue)
       @event = Event.new
     else
       flash[:notice] = "Venues must create events"
       redirect_to events_path
     end
-
-    if !current_user.has_paid
-      redirect_to new_charge_path
-    end
-
   end
 
   # GET /events/1/edit
@@ -104,6 +100,10 @@ class EventsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
       params.require(:event).permit(:image, :title, :date, :time, :about, :venue_id, :cause_id)
+    end
+
+    def not_paid
+      redirect_to new_charge_path
     end
 
     def not_authorized

@@ -1,6 +1,5 @@
 class ChargesController < ApplicationController
   def new
-
   end
 
   def create
@@ -15,13 +14,12 @@ class ChargesController < ApplicationController
       :currency => 'aud'
       )
 
-
-    current_user.has_paid = true
+    flash[:has_paid] = true
     redirect_to new_event_path
 
     rescue Stripe::CardError => e
-    flash[:error] = e.message
-    redirect_to events_path
+      flash[:error] = e.message
+      redirect_to events_path
   end
 
 end
