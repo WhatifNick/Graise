@@ -90,4 +90,15 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  RequestEventMailer.delivery_method = :smtp
+  RequestEventMailer.smtp_settings = {
+    address:"smtp.gmail.com",
+    port: 587,
+    domain:"calm-temple-46342.herokuapp.com",
+    authentication: "plain",
+    user_name: ENV["GMAIL_USERNAME"],
+    password: ENV["GMAIL_PASSWORD"],
+    enable_starttls_auto: true
+  }
 end
