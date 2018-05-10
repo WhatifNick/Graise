@@ -24,6 +24,9 @@ class EventsController < ApplicationController
       redirect_to events_path
     end
 
+    if !current_user.has_paid
+      redirect_to new_charge_path
+    end
 
   end
 
@@ -55,8 +58,10 @@ class EventsController < ApplicationController
     @event.venue = Venue.where(user_id: current_user.id).first
     respond_to do |format|
       if @event.save
+        current_user.has_paid = false
         format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
+
       else
         format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }

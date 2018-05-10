@@ -66,3 +66,6 @@ gem "devise", "~> 4.4"
 
 # Added at 2018-05-03 16:14:58 +1000 by alexspong:
 gem "rolify", "~> 5.2"
+
+# Added at 2018-05-10 16:17:17 +1000 by alexspong:
+gem "stripe", "~> 3.14"

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :has_paid
   rolify
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -14,6 +15,14 @@ class User < ApplicationRecord
   has_one :venue
   geocoded_by :city_state_address
 
+
+  def initialize
+    @has_paid = false
+  end
+
+  def has_paid?
+    return @has_paid
+  end
 
   def can_create_event?
     self.has_role?(:admin) || self.has_role?(:venue)
@@ -42,5 +51,7 @@ class User < ApplicationRecord
   def city_state_address
     "#{city}, #{state}"
   end
+
+
 
 end
