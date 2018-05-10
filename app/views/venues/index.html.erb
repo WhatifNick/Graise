@@ -22,7 +22,7 @@
     <% @venues.each do |venue| %>
       <tr>
         <td><%= image_tag venue.image_url(:thumb) %></td>
-        <td><%= venue.name %></td>
+        <td><%= link_to venue.name, venue_path(venue) %></td>
         <td><%= venue.phone_number %></td>
         <td><%= venue.email %></td>
         <td><%= venue.website %></td>
@@ -30,10 +30,10 @@
         <td><%= User.find(venue.user_id).first_name %></td>
         <td><%= venue.street_address %></td>
         <td><%= "#{venue.city}, #{venue.state}  #{venue.post_code}" %></td>
-        <td><%= link_to 'Show', venue %></td>
+        <td><%= link_to 'More Info', venue %></td>
         <% if user_signed_in? && venue.user_id == current_user.id %>
         <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
-        <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
       </tr>
     <% end %>

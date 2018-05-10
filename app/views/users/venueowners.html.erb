@@ -8,6 +8,7 @@
       <th>Image</th>
       <th>First name</th>
       <th>Last name</th>
+      <th>Venue</th>
       <th>Email</th>
       <th>Phone number</th>
 
@@ -20,8 +21,9 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= image_tag user.image_url(:thumb) %></td>
-        <td><%= user.first_name %></td>
-        <td><%= user.last_name %></td>
+        <td><%= link_to user.first_name, user_path(user.id) %></td>
+        <td><%= link_to user.last_name, user_path(user.id) %></td>
+        <td><%= link_to user.venue.name, venue_path(user.venue.id) %></td>
         <td><%= user.email %></td>
         <td><%= user.phone_number %></td>
 

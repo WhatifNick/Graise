@@ -5,8 +5,9 @@ class EventsController < ApplicationController
   # GET /events.json
   def index
     @events = Event.order(date: :desc)
-    # Venue.includes(:events).near("Brisbane, Qld")
-    # .order("events.date")
+    # venues = Venue.near("#{current_user.city}, #{current_user.state}").map(&:id)
+    # @events = Event.where({ venue_id: venues })
+
   end
 
   # GET /events/1
@@ -43,7 +44,7 @@ class EventsController < ApplicationController
     ep = event_params
     # if (!hosts.empty?)
       ep[:user_id] = hosts.first.id
-
+      ep[:cause_id] = hosts.first.cause_id
     # else
     #   flash[:notice] = "Host email not found"
     #   redirect_to new_event_path

@@ -31,9 +31,32 @@
 </p>
 
 <p>
-  <strong>Area:</strong>
+  <strong>Location:</strong>
   <%= "#{@user.city},#{@user.state}" if @user.city!=nil && @user.state!=nil %>
 </p>
+
+<p>
+  <strong>Cause:</strong>
+  <%= @user.cause.name if @user.cause !=nil %>
+</p>
+
+
 <% if @user == current_user %>
 <%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
+
+<br><br>
+
+
+
+<h3>Set Cause</h3>
+
+<%= form_tag("/users/#{@user.id}", method: "patch") do %>
+<div class="field">
+<select name="user[cause_id]">
+  <%= options_from_collection_for_select(Cause.all, :id, :name) %>
+</select>
+</div>
+
+<button type=“submit”>Go!</button>
 <% end %>

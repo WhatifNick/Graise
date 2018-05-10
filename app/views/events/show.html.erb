@@ -32,12 +32,17 @@
 
 <p>
   <strong>Venue:</strong>
-  <%= @event.venue.name %>
+  <%= link_to @event.venue.name, venue_path(@event.venue.id) %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @event.venue.full_street_address %>
 </p>
 
 <p>
   <strong>Cause:</strong>
-  <%= @event.cause.name %>
+  <%= link_to @event.cause.name, cause_path(@event.cause.id)%>
 </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
