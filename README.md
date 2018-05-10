@@ -8,9 +8,8 @@
 4. Wireframing
 5. Workflow Diagram
 6. Entity Relationship Diagram
-List of Tools Used
-Project Plan
-Future Updates
+7. List of Tools Used
+8. Future Updates
 
 -----
 ## 1. Summanry
@@ -37,39 +36,27 @@ Configuration - you will not have an ENV file as this has been ignored through G
    
 -----
 ## 3. User Stories
-
+![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/user_stories.png "Graise user stories")
 
 -----
 ## 4. Wireframing
-
+![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/wireframe.png "Graise Wireframe")
 
 -----
-## 5. Workflow Diagram
+## 5. Workflow Diagrams
+![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/host_workflow_diagram.jpg "Graise Host Workslow Diagram")
 
+
+![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/venue_workflow_diagram.jpg "Graise Venue Workslow Diagram")
 
 -----
 ## 6. Entity Relationship Diagram
+![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/gRaise_ERD.png "Graise Entity Relationship Diagram")
+
+-----
+## 7 List of Tools Used
 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+-----
+## 8 Future Updates
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
