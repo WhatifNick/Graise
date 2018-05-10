@@ -16,13 +16,13 @@ class User < ApplicationRecord
   geocoded_by :city_state_address
 
 
-  def initialize
+  def paid
     @has_paid = false
   end
 
-  def has_paid?
-    return @has_paid
-  end
+  # def has_paid?
+  #   return @has_paid
+  # end
 
   def can_create_event?
     self.has_role?(:admin) || self.has_role?(:venue)
