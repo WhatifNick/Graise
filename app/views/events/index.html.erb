@@ -86,12 +86,14 @@
 
        var features = [
          <% @events.each do |event| %>
+          <% if event.venue.latitude.exists? && event.venue.longitude.exists? %>
          {
            position: new google.maps.LatLng(<%= event.venue.latitude %>, <%= event.venue.longitude %>),
            type: 'library'
          },
          <% end %>
-
+         <% end %>
+         
        ];
 
        // Create markers.
