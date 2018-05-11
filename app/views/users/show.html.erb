@@ -1,18 +1,13 @@
+<div style="text-align:center">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @user.image_url %>
+  <%= image_tag @user.image_url, options={ height: "200px"} %>
 </p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @user.last_name %>
+  <strong>Name:</strong>
+  <%= @user.first_name %>  <%= @user.last_name %>
 </p>
 
 <p>
@@ -37,7 +32,7 @@
 
 <p>
   <strong>Cause:</strong>
-  <%= @user.cause.name if @user.cause !=nil %>
+  <%= link_to @user.cause.name, cause_path(@user.cause) if @user.cause !=nil %>
 
 </p>
 
@@ -61,3 +56,4 @@
 
 <button type=“submit”>Go!</button>
 <% end %>
+</div>

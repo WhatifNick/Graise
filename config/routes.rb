@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'users/hosts'
   get 'users/venueowners'
   get "venues/myvenue"
+  get "home", to: "events#home", as: :home
+  root to: "events#home"
   get "events/index", to: "events#index", as: :role
   devise_for :users, controllers: {
           registrations: 'users/registrations'
@@ -12,7 +14,6 @@ Rails.application.routes.draw do
   resources :venues
   resources :users
   resources :areas
-  root to: 'events#index'
   post "requests/create"
   get "requests/index"
   resources :charges

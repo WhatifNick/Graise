@@ -33,30 +33,49 @@ Configuration - you will not have an ENV file as this has been ignored through G
    + `GMAIL_PASSWORD=XXXX`
    + `PUBLISHABLE_KEY=XXXX`
    + `SECRET_KEY=XXXX`
-   
+   + `GOOGLE_MAP_API=XXXX`
+
 -----
 ## 3. User Stories
-![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/user_stories.png "Graise user stories")
+![Graise user stories](app/assets/images/user_stories.png "Graise user stories")
 
 -----
 ## 4. Wireframing
-![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/wireframe.png "Graise Wireframe")
+![Graise Wireframe](app/assets/images/wireframe.png "Graise Wireframe")
 
 -----
 ## 5. Workflow Diagrams
-![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/host_workflow_diagram.jpg "Graise Host Workslow Diagram")
+![Graise Host Workflow Diagram](app/assets/images/host_workflow_diagram.jpg "Graise Host Workflow Diagram")
 
 
-![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/venue_workflow_diagram.jpg "Graise Venue Workslow Diagram")
+![Graise Venue Workflow Diagram](app/assets/images/venue_workflow_diagram.jpg "Graise Venue Workflow Diagram")
 
 -----
 ## 6. Entity Relationship Diagram
-![alt text](https://github.com/WhatifNick/Graise/blob/master/app/assets/images/gRaise_ERD.png "Graise Entity Relationship Diagram")
+![Graise Entity Relationship Diagram](app/assets/images/gRaise_ERD.png "Graise Entity Relationship Diagram")
 
 -----
 ## 7 List of Tools Used
-
+1. Github - Version control, user stories and to assign story points for project management.
+2. Draw.io - ERD
+3. postgresql - Database
+4. Devise - authentication
+5. Sketch - Workflow Diagrams, Wireframing
+6. Cloudinary - image uploads
+7. Webhosting - Heroku
+8. Gmail - emails
+9. Stripe - payments
+10. dotenv-rails - environmental variables
+11. geocoder - longitude latitude geocoding
+12. Google Maps - map locations
+13. Peer code review
 
 -----
 ## 8 Future Updates
 
+1. Implement messaging between hosts and venues
+2. Implement filtering by location
+3. Implement page where venues can accept or deny a host's request for an event
+4. Allow a venue to post their availability on a calendar that is visible to hosts
+5. Allow venues to donate funds to cause through app and display funds donated on venue page
+6. Implement list of host who support a cause on the cause's page

@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<style>
+  .showevent {
+    text-align: center;
+  }
 
+</style>
+
+<p id="notice"><%= notice %></p>
+<div class="showevent">
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @event.image_url %>
+  <%= image_tag(@event.image_url, options={ height: "300px"}) %>
 </p>
 
 <p>
@@ -45,5 +51,15 @@
   <%= link_to @event.cause.name, cause_path(@event.cause.id)%>
 </p>
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_event_path(@event), class: "btn btn-info" %> |
+<%= link_to 'Back', events_path, class: "btn btn-info" %>
+
+<br>
+<br>
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="https://www.google.com/maps/embed/v1/place?key=<%=ENV['GOOGLE_MAP_API']%>&q=<%= @event.venue.full_street_address %>" allowfullscreen>
+</iframe>
+</div>

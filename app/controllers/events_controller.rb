@@ -10,6 +10,10 @@ class EventsController < ApplicationController
 
   end
 
+  def home
+
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show

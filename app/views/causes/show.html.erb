@@ -1,8 +1,10 @@
+
+
+<div style="text-align:center">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @cause.image_url %>
+  <%= image_tag @cause.image_url, options={ height: "300px"} %>
 </p>
 
 
@@ -21,5 +23,5 @@
   <%= @cause.about %>
 </p>
 
-<%= link_to 'Edit', edit_cause_path(@cause) %> |
 <%= link_to 'Back', causes_path %>
+</div>

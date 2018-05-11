@@ -5,9 +5,8 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th>Image</th>
-      <th>First name</th>
-      <th>Last name</th>
+      <th></th>
+      <th>Name</th>
       <th>Venue</th>
       <th>Email</th>
       <th>Phone number</th>
@@ -21,8 +20,7 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= image_tag user.image_url(:thumb) %></td>
-        <td><%= link_to user.first_name, user_path(user.id) %></td>
-        <td><%= link_to user.last_name, user_path(user.id) %></td>
+        <td><%= link_to "#{user.first_name} #{user.last_name}", user_path(user.id) %></td>
 
         <td><%= link_to user.venue.name, venue_path(user.venue.id) if user.venue !=nil %></td>
 

@@ -6,7 +6,7 @@
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th>Image</th>
+      <th></th>
       <th>Title</th>
       <th>Date</th>
       <th>Time</th>
@@ -43,3 +43,67 @@
 <% if user_signed_in? && current_user.has_role?(:venue) %>
 <%= link_to 'New Event', new_event_path %>
 <% end %>
+
+
+<style>
+  /* Always set the map height explicitly to define the size of the div
+   * element that contains the map. */
+  #map {
+    height: 100%;
+  }
+  /* Optional: Makes the sample page fill the window. */
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+</style>
+
+
+
+   <div id="map"></div>
+   <script>
+     var map;
+     function initMap() {
+       map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 12,
+         center: new google.maps.LatLng(-27.5, 153.016667),
+         mapTypeId: 'roadmap'
+       });
+
+       var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+       var icons = {
+         parking: {
+           icon: iconBase + 'parking_lot_maps.png'
+         },
+         library: {
+           icon: iconBase + 'library_maps.png'
+         },
+         info: {
+           icon: iconBase + 'info-i_maps.png'
+         }
+       };
+
+       var features = [
+         <% @events.each do |event| %>
+         {
+           position: new google.maps.LatLng(<%= event.venue.latitude %>, <%= event.venue.longitude %>),
+           type: 'library'
+         },
+         <% end %>
+
+       ];
+
+       // Create markers.
+       features.forEach(function(feature) {
+         var marker = new google.maps.Marker({
+           position: feature.position,
+           icon: icons[feature.type].icon,
+           map: map
+         });
+       });
+     }
+   </script>
+   <script async defer
+   src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAP_API']%>&callback=initMap">
+   </script>
