@@ -1,5 +1,7 @@
 # README
 
+![Graise Logo](app/assets/images/Graise.png "Graise Logo")
+
 # Overview
 
 1. Summary
